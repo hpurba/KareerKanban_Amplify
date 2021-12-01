@@ -19,7 +19,7 @@ import testimonial1 from "./img/testimonials-1.jpg";
 import testimonial2 from "./img/testimonials-2.jpg";
 import testimonial3 from "./img/testimonials-3.jpg";
 import "./Home.css";
-import "./styles.css";
+import "../styles.css";
 
 const Home = () => <div>
 	<p>You are now logged in!<Link to="/app/profile">View profile</Link></p>
