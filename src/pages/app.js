@@ -6,13 +6,12 @@ import Home from "../components/Home/Home"
 import Login from "../components/Login"
 import SignUp from "../components/SignUp"
 import PrivateRoute from "../components/PrivateRoute"
-
+// import { Container, Nav, NavDropdown, Navbar } from 'react-bootstrap'
 
 const App = () => (
   <Layout>
     <Router>
       <Home path="/app/home" />
-      {/* <PrivateRoute path="/app/home" component={Home} /> */}
       {/* <PrivateRoute path="/app/home" component={Home} /> */}
       <PrivateRoute path="/app/profile" component={Details} />
       <Login path="/app/login" />
