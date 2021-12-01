@@ -1,0 +1,73 @@
+{
+  "version": "1",
+  "cognitoConfig": {
+    "identityPoolName": "cognito704b3e59_identitypool_704b3e59",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "cognitcb6ad8c6",
+    "userPoolName": "cognito704b3e59_userpool_704b3e59",
+    "autoVerifiedAttributes": [
+      "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+      "SMS Text Message"
+    ],
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [
+      "Requires Lowercase",
+      "Requires Uppercase",
+      "Requires Numbers",
+      "Requires Symbols"
+    ],
+    "requiredAttributes": [
+      "email"
+    ],
+    "aliasAttributes": [],
+    "userpoolClientGenerateSecret": true,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientWriteAttributes": [
+      "email"
+    ],
+    "userpoolClientReadAttributes": [
+      "email"
+    ],
+    "userpoolClientLambdaRole": "cognito704b3e59_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": false,
+    "thirdPartyAuth": false,
+    "openIdLogPolicy": "cognito704b3e59_openid_lambda_log_policy",
+    "roleExternalId": "cognito704b3e59_role_external_id",
+    "useDefault": "manual",
+    "resourceName": "cognito704b3e59",
+    "authSelections": "identityPoolAndUserPool",
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": {},
+    "hostedUI": false,
+    "userPoolGroupList": [],
+    "serviceName": "Cognito",
+    "authProviders": [],
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    },
+    "breakCircularDependency": false,
+    "permissions": [],
+    "dependsOn": []
+  }
+}
