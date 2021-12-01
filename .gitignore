@@ -9,6 +9,7 @@ amplify/backend/awscloudformation
 amplify/team-provider-info.json
 amplify.json
 build/
+.cache/
 dist/
 node_modules/
 aws-exports.js
@@ -16,3 +17,4 @@ awsconfiguration.json
 amplifyconfiguration.json
 amplify-gradle-config.json
 amplifyxc.config
+yarn.lock
