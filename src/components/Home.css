@@ -1,0 +1,149 @@
+/* Generated Color Scheme: https://coolors.co/0a2239-c49799-fbfff1-71816d-c8e0f4 */
+.my-color-scheme {
+    /* Oxford Blue
+    Tuscany
+    Ivory
+    Xanadu
+    Beau Blue */
+    background-color: #0a2239;
+    background-color: #c49799;
+    background-color: #fbfff1;
+    background-color: #71816d;
+    background-color: #c8e0f4;
+  }
+  
+  /* Use this for making a gradient https://cssgradient.io/ */
+  .custommasthead {
+    background-color: #fbfff1 !important;
+    /* Radial Green */
+    /* background: rgb(48, 175, 145) !important; */
+    /* background: radial-gradient(circle, #30af91 0%, #a4ebbc 45%, #e1fbea 66%) !important; */
+  }
+  
+  body {
+    overflow: hidden !important;
+  }
+  
+  /* This is not used, useful as a reference */
+  /* section-snap {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    scroll-snap-align: start;
+  } */
+  
+  section {
+    height: 100v !important;
+    scroll-snap-align: start !important;
+  }
+  
+  .container-snap {
+    /* scroll-snap-type: y mandatory; */
+    scroll-snap-type: y proximity;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+  
+  .one {
+    background-color: blueviolet;
+  }
+  
+  .two {
+    background-color: aquamarine;
+  }
+  
+  .three {
+    background-color: azure;
+  }
+  
+  .scaled-to-fit-img {
+    background-position: center;
+  }
+  
+  .centered {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* THIS IS USED. Horizontal margin for top navigation bar */
+  .nav-padding {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
+  /* THIS IS USED. ADJUSTS THE SIZE OF THE 'KAREERKANBAN' TEXT AT THE TOP LEFT */
+  .navbar-brand {
+    font-weight: 900 !important;
+    font-size: 140% !important;
+  }
+  
+  /* THIS MANAGES THE MAIN HOME PAGE TOP BIG TEXT */
+  .homepage-huge-text {
+    font-weight: 900 !important;
+    /* font-size: 540% !important; */
+    font-size: 4vw !important;
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 400px) {
+    .homepage-huge-text {
+      font-weight: 900 !important;
+      /* font-size: 540% !important; */
+      font-size: 10vw !important;
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .homepage-huge-text {
+      font-weight: 900 !important;
+      /* font-size: 540% !important; */
+      font-size: 9vw !important;
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    .homepage-huge-text {
+      font-weight: 900 !important;
+      /* font-size: 540% !important; */
+      font-size: 8vw !important;
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .homepage-huge-text {
+      font-weight: 900 !important;
+      /* font-size: 540% !important; */
+      font-size: 6vw !important;
+      width: 100%;
+    }
+  }
+  
+  .masthead-white {
+    background-color: white !important;
+  }
+  
+  .red-border {
+    border-style: solid;
+    border-color: red;
+    /* margin-left: 5% !important;
+    margin-right: 5% !important; */
+    /* width: auto; */
+    width: 100%;
+  }
+  
+  .homepage-text {
+    width: 100%;
+  }
+  
+  /* MAKES THE CONTAINER A NEAR FULL WIDTH */
+  .full-width-container {
+    max-width: 70%;
+  }
+  
