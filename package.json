@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Nader Dabit <dabit3.@gmail.com>",
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
     "aws-amplify": "^4.2.4",
     "bootstrap": "3",
     "gatsby": "^2.32.13",
@@ -41,7 +42,7 @@
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   },
   "resolutions": {
-    "graphql": "14.7.0",
+    "graphql": "14.x",
     "remark-mdx": "1.6.22"
   }
 }
