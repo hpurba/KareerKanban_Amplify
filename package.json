@@ -5,6 +5,7 @@
   "author": "Nader Dabit <dabit3.@gmail.com>",
   "dependencies": {
     "aws-amplify": "^4.2.4",
+    "bootstrap": "3",
     "gatsby": "^2.32.13",
     "gatsby-plugin-manifest": "^2.12.1",
     "gatsby-plugin-offline": "^2.2.10",
@@ -16,6 +17,7 @@
     "mozjpeg": "^8.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
+    "react-bootstrap": "^2.0.3",
     "react-dom": "^16.14.0",
     "react-helmet": "^5.2.1"
   },
@@ -43,4 +45,3 @@
     "remark-mdx": "1.6.22"
   }
 }
-
