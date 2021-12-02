@@ -1,3 +1,10 @@
+// For Hikaru: Running this on local machine: https://jeffry.in/m1-chip-gatsby-setup/
+// yarn start
+// yarn cache clean
+// yarn install
+// yarn start
+// yarn build
+
 # Gatsby Auth starter with AWS Amplify
 
 This auth starter implements a basic authentication flow for signing up signing in users as well as protected client side routing using [AWS Amplify](https://amplify.aws). Auth features:
