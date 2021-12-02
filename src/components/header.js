@@ -7,9 +7,6 @@ import { logout, isLoggedIn } from "../utils/auth"
 import { Auth } from 'aws-amplify'
 import "./styles.css";
 import { getCurrentUser } from '../utils/auth'
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import 'bootstrap';
-
 
 const user = getCurrentUser()
 
