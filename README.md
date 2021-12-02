@@ -1,5 +1,9 @@
 // For Hikaru: Running this on local machine: https://jeffry.in/m1-chip-gatsby-setup/
 // yarn start
+// yarn cache clean
+// yarn install
+// yarn start
+// yarn build
 
 # Gatsby Auth starter with AWS Amplify
 
