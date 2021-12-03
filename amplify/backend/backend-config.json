@@ -1,6 +1,6 @@
 {
   "auth": {
-    "kareerkanbanamplify8812edff": {
+    "kareerkanbanamplify54c09d94": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
