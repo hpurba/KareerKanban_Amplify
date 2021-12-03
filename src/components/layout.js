@@ -30,7 +30,6 @@ const Layout = ({ children, data }) => (
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
-          className="container-snap"
           style={{
             margin: 0,
             maxWidth: '100vw',

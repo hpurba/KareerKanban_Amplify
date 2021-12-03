@@ -6,6 +6,8 @@ import Layout from '../components/layout'
 import Amplify from 'aws-amplify'
 import config from '../aws-exports'
 import Home from '../components/Home/Home'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 Amplify.configure(config)
 
 const IndexPage = () => (
