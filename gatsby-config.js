@@ -30,5 +30,16 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    `bootstrap`,
+    // {
+    //   resolve: `gatsby-plugin-sass`,
+    //   options: {
+    //     implementation: require("node-sass"),
+    //     postCssPlugins: [somePostCssPlugin()],
+    //     sassOptions: {
+    //       precision: 6,
+    //     },
+    //   },
+    // },
   ],
 }

@@ -8,6 +8,7 @@
 
 import Auth from '@aws-amplify/auth'
 import { setUser } from './src/utils/auth'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const onRouteUpdate = (state, page, pages) => {
   Auth.currentAuthenticatedUser()
