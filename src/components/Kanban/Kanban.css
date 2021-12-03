@@ -1,0 +1,5 @@
+.BoardContainer {
+    display: flex;
+    align-items: center;
+    padding: 0em 5em;
+}

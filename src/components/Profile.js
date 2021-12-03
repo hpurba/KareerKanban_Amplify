@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { getCurrentUser } from '../utils/auth'
 
-const Home = () => {
+const Profile = () => {
   const user = getCurrentUser()
   console.log('user:', user)
   return (
@@ -16,4 +16,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Profile

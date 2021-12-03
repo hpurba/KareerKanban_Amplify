@@ -22,7 +22,7 @@ const Layout = ({ children, data }) => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: 'Sample' },
+            { name: 'description', content: 'Kanban' },
             { name: 'keywords', content: 'sample, something' },
           ]}
         >
@@ -30,10 +30,11 @@ const Layout = ({ children, data }) => (
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
+          className="container-snap"
           style={{
-            margin: '0 auto',
-            maxWidth: 960,
-            padding: '0px 1.0875rem 1.45rem',
+            margin: 0,
+            maxWidth: '100vw',
+            padding: 0,
             paddingTop: 0,
           }}
         >
