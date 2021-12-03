@@ -47,7 +47,7 @@ const Header = ({ siteTitle }) => (
                   onClick={
                     () => Auth.signOut().then(logout(() => navigate('/app/login'))).catch(err => console.log('eror:', err))
                   } 
-                  class="nav-item nav-link" href="/app/login">Sign Out</a>
+                  class="nav-item nav-link" >Sign Out</a>
                 // <a class="nav-item nav-link" href="/app/kanban">Kanban</a>
 
               )

@@ -2,7 +2,7 @@
   "name": "gatsby-auth-starter-aws",
   "description": "Gatsby authentication starter for AWS",
   "version": "1.0.0",
-  "author": "Nader Dabit <dabit3.@gmail.com>",
+  "author": "Hikaru Purba <hikaru.purba@gmail.com>",
   "dependencies": {
     "@asseinfo/react-kanban": "^2.2.0",
     "@material-ui/core": "^4.12.3",
