@@ -1,4 +1,4 @@
-# ABOUT KAREERKANBAB
+# ABOUT KAREER KANBAN
 KareerKanban is a personal job application management platform. It is intended to help your job search by managing the progress of your many job applications.
 The management of the job applications are done in a kanban style. Each card on the kanban "board" is a job application. Each column which the card(s) is under indicates the progress of that job application. Each job application card holds further information of the job application such as: Job type, expected salary/compensation, company, recruiter contact, personal notes, next interview, offer, etc.
 
