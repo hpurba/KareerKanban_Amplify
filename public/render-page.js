@@ -126,11 +126,6 @@ var plugins = [{
     "include_favicon": true,
     "cacheDigest": "4a9773549091c227cd2eb82ccd9c5e3a"
   }
-}, {
-  plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-offline/gatsby-ssr */ "./node_modules/gatsby-plugin-offline/gatsby-ssr.js"),
-  options: {
-    "plugins": []
-  }
 }]; // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
 //   {
@@ -2763,37 +2758,6 @@ var _default = function _default(pathname, localizedManifests) {
 };
 
 exports.default = _default;
-
-/***/ }),
-
-/***/ "./node_modules/gatsby-plugin-offline/gatsby-ssr.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/gatsby-plugin-offline/gatsby-ssr.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.onPreRenderHTML = void 0;
-
-var onPreRenderHTML = function onPreRenderHTML(_ref) {
-  var getHeadComponents = _ref.getHeadComponents,
-      pathname = _ref.pathname,
-      replaceHeadComponents = _ref.replaceHeadComponents;
-  if (pathname !== "/offline-plugin-app-shell-fallback/") return;
-  var headComponents = getHeadComponents();
-  var filteredHeadComponents = headComponents.filter(function (_ref2) {
-    var type = _ref2.type,
-        props = _ref2.props;
-    return !(type === "link" && props.as === "fetch" && props.rel === "preload" && (props.href.startsWith("/static/d/") || props.href.startsWith("/page-data/")));
-  });
-  replaceHeadComponents(filteredHeadComponents);
-};
-
-exports.onPreRenderHTML = onPreRenderHTML;
 
 /***/ }),
 

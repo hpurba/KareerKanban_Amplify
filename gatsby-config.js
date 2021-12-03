@@ -31,22 +31,12 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     {
-      resolve: "bootstrap",
+      resolve: "react-bootstrap",
       options: {},
     },
     {
       resolve: "@asseinfo/react-kanban",
       options: {},
     },
-    // {
-    //   resolve: `gatsby-plugin-sass`,
-    //   options: {
-    //     implementation: require("node-sass"),
-    //     postCssPlugins: [somePostCssPlugin()],
-    //     sassOptions: {
-    //       precision: 6,
-    //     },
-    //   },
-    // },
   ],
 }
