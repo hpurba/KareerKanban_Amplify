@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Board from "./components/Board";
 // import Card from "./Card";
-import { useAuth0 } from "@auth0/auth0-react";
 import "@asseinfo/react-kanban/dist/styles.css";
 import "./Kanban.css";
+import { getCurrentUser } from '../../utils/auth'
 
 function Kanban() {
-  const { user /*,isAuthenticated,getAccessTokenSilently*/ } = useAuth0();
+  const user = getCurrentUser()
   const [board, setBoard] = useState({ columns: [] });
   let userId = null;
 

@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react'
+import React, { forwardRef, useState } from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
 import Column from './components/Column'
 import ColumnAdder from './components/ColumnAdder'

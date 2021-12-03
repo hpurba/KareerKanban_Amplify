@@ -1,3 +1,4 @@
+import React from 'react'
 import { forwardRef } from 'react'
 import { Draggable } from 'react-beautiful-dnd'
 import Card from './components/Card'

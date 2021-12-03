@@ -1,3 +1,4 @@
+import React from 'react'
 import { Draggable } from 'react-beautiful-dnd'
 
 function Card({ children, index, renderCard, disableCardDrag }) {

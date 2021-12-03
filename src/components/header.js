@@ -28,11 +28,11 @@ const Header = ({ siteTitle }) => (
           <a class="nav-item nav-link active" href="/">Home</a>
           <a class="nav-item nav-link active" href="/app/signup">SignUp</a>
           <a class="nav-item nav-link" href="/app/login">Login</a>
-          <a class="nav-item nav-link" href="/app/profile">Profile</a>
-          <a class="nav-item nav-link" href="#">Kanban</a>
+          <a class="nav-item nav-link" href="/app/profile">Profile {user.username}</a>
+          <a class="nav-item nav-link" href="/app/kanban">Kanban</a>
           {/* <a class="nav-item nav-link" href="#">Pricing</a> */}
 
-          <a class="nav-item nav-link" href="#">{user.username}</a>
+          {/* <a class="nav-item nav-link" href="#">{user.username}</a> */}
           <a class="nav-item nav-link disabled" href="#">Pricing</a>
           {
             isLoggedIn() && (
@@ -43,12 +43,13 @@ const Header = ({ siteTitle }) => (
           <a className="nav-item">
             {
               isLoggedIn() && (
-                <p
+                <a
                   onClick={
                     () => Auth.signOut().then(logout(() => navigate('/app/login'))).catch(err => console.log('eror:', err))
-                  }
-                  style={styles.link}
-                >Sign Out</p>
+                  } 
+                  class="nav-item nav-link" href="/app/login">Sign Out</a>
+                // <a class="nav-item nav-link" href="/app/kanban">Kanban</a>
+
               )
             }
           </a>
