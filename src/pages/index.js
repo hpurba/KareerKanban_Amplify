@@ -9,7 +9,6 @@ import Home from '../components/Home/Home'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap';
 // import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
-// import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 Amplify.configure(config)
 
