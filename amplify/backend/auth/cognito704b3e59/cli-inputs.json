@@ -60,7 +60,9 @@
     "adminQueries": false,
     "triggers": {},
     "hostedUI": false,
-    "userPoolGroupList": [],
+    "userPoolGroupList": [
+      "KareerKanbanBasicUser"
+    ],
     "serviceName": "Cognito",
     "authProviders": [],
     "parentStack": {
@@ -68,6 +70,7 @@
     },
     "breakCircularDependency": false,
     "permissions": [],
-    "dependsOn": []
+    "dependsOn": [],
+    "useEnabledMfas": false
   }
 }
