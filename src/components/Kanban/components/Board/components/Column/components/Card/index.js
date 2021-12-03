@@ -1,11 +1,12 @@
 import React from 'react'
 // import { Draggable } from 'react-beautiful-dnd'
+import { Draggable } from '../../../../../../../../../node_modules/react-beautiful-dnd'
 
 function Card({ children, index, renderCard, disableCardDrag }) {
   return (
     // <Draggable>
     //   </Draggable>
-    <div draggableId={String(children.id)} index={index} isDragDisabled={disableCardDrag}>
+    <Draggable draggableId={String(children.id)} index={index} isDragDisabled={disableCardDrag}>
       {(provided, { isDragging }) => {
         return (
           <div
@@ -18,7 +19,7 @@ function Card({ children, index, renderCard, disableCardDrag }) {
           </div>
         )
       }}
-    </div>
+    </Draggable>
   )
 }
 

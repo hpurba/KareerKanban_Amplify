@@ -1,5 +1,6 @@
 import React, { forwardRef, useState } from 'react'
-import { DragDropContext } from 'react-beautiful-dnd'
+// import { DragDropContext } from 'react-beautiful-dnd'
+import { DragDropContext } from '../../../../../node_modules/react-beautiful-dnd'
 import Column from './components/Column'
 import ColumnAdder from './components/ColumnAdder'
 import withDroppable from '../withDroppable'

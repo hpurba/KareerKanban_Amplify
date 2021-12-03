@@ -1,5 +1,6 @@
 import React from 'react'
-import { Droppable } from 'react-beautiful-dnd'
+import { Droppable } from '../../../../../node_modules/react-beautiful-dnd'
+// import { Droppable } from 'react-beautiful-dnd'
 
 function withDroppable(Component) {
   return function WrapperComponent({ children, ...droppableProps }) {
