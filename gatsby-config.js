@@ -30,7 +30,14 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-    `bootstrap`,
+    {
+      resolve: "bootstrap",
+      options: {},
+    },
+    {
+      resolve: "@asseinfo/react-kanban",
+      options: {},
+    },
     // {
     //   resolve: `gatsby-plugin-sass`,
     //   options: {
