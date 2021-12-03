@@ -22,9 +22,26 @@ Then remove the following:
 - yarn.lock
 
 
+# GraphQL Schema Path
+/Users/hikarupurba/Code/KareerKanban_Amplify/amplify/backend/api/KareerKanbanAPI/schema.graphql
+Example Schema:
+type Todo @model {
+  id: ID!
+  name: String!
+  description: String
+}
 
 
-
+# Amplify helpful commands
+```sh
+amplify update auth
+amplify pull
+amplify push
+amplify update
+amplify pull --appId d2f7ycgor9x0lb --envName main
+amplify publish
+amplify hosting add
+```
 
 
 
