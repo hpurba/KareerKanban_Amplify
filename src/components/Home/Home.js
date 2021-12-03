@@ -20,7 +20,7 @@ import testimonial2 from "./img/testimonials-2.jpg";
 import testimonial3 from "./img/testimonials-3.jpg";
 import "./Home.css";
 import "../styles.css";
-import "../../../node_modules/bootstrap-icons/font/bootstrap-icons.css"
+// import "../../../node_modules/bootstrap-icons/font/bootstrap-icons.css"
 
 const Home = () => <div>
 	{/* <div> */}
