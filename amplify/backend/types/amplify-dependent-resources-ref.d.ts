@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
     "auth": {
-        "cognito704b3e59": {
+        "kareerkanbanamplify8812edff": {
             "IdentityPoolId": "string",
             "IdentityPoolName": "string",
             "UserPoolId": "string",
@@ -9,9 +9,6 @@ export type AmplifyDependentResourcesAttributes = {
             "AppClientIDWeb": "string",
             "AppClientID": "string",
             "CreatedSNSRole": "string"
-        },
-        "userPoolGroups": {
-            "KareerKanbanBasicUserGroupRole": "string"
         }
     },
     "api": {
