@@ -8,7 +8,11 @@
 
 import Auth from '@aws-amplify/auth'
 import { setUser } from './src/utils/auth'
-import 'bootstrap/dist/css/bootstrap.min.css'
+
+// https://stackoverflow.com/questions/56493502/how-to-add-bootstrap-js-in-a-gatsby-website
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.min.js"
+import "@popperjs/core/dist/umd/popper.min.js"
 
 // https://www.gatsbyjs.com/plugins/gatsby-plugin-sass/
 // import "./src/index.scss"
