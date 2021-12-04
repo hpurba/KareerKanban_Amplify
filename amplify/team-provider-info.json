@@ -12,14 +12,14 @@
       "AmplifyAppId": "d31ddx38u82yx1"
     },
     "categories": {
+      "auth": {
+        "kareerkanban3cc2b37c": {}
+      },
       "hosting": {
         "amplifyhosting": {
           "appId": "d31ddx38u82yx1",
           "type": "cicd"
         }
-      },
-      "auth": {
-        "kareerkanban3cc2b37c": {}
       }
     }
   }
