@@ -43,8 +43,12 @@ amplify publish
 amplify hosting add
 ```
 
-
-
+# Deleting an environment
+Use this command to delete an app envirnment from the aws cli.
+These are instructions for installing the AWS CLI: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+```sh
+aws amplify delete-backend-environment --app-id d2f7ycgor9x0lb --environment-name main
+```
 
 # BELOW ARE ORIGINAL README.md INSTRUCTIONS FOR NEW PROJECTS
 Disregard the following unless you want to learn the setup of a project like this.
