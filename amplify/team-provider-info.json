@@ -17,6 +17,9 @@
           "appId": "d31ddx38u82yx1",
           "type": "cicd"
         }
+      },
+      "auth": {
+        "kareerkanban3cc2b37c": {}
       }
     }
   }
