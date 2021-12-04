@@ -8,7 +8,6 @@ import SignUp from "../components/SignUp"
 import PrivateRoute from "../components/PrivateRoute"
 // import Kanban from "../components/Kanban/Kanban";
 
-
 const App = () => (
   <Layout>
     <Router>
