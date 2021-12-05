@@ -40,7 +40,6 @@ const Header = ({ siteTitle }) => (
                   <Nav.Link href="/app/signup">Sign Up</Nav.Link>
                   <Nav.Link href="/app/login">Login</Nav.Link>
                   <Nav.Link href="/app/kanban">Kanban</Nav.Link>
-                  <Nav.Link href="/app/pricing" disabled>Pricing</Nav.Link>
                 </>
               )
             }
@@ -51,22 +50,10 @@ const Header = ({ siteTitle }) => (
                 <>
                   <Nav.Link href="/app/profile">{user.username}</Nav.Link>
                   <Nav.Link href="/app/kanban">Kanban</Nav.Link>
-                  <Nav.Link href="/app/pricing">Pricing</Nav.Link>
-                  <>
-                    <a
-                      onClick={
-                        () => Auth.signOut().then(logout(() => navigate('/app/home'))).catch(err => console.log('eror:', err))
-                      }
-                      class="nav-item nav-link">Sign Out</a>
-                  </>
-                  {/* <Button onClick={this.logout}>
-                    Sign Out
-                  </Button> */}
                 </>
 
               )
             }
-            
             {
               isLoggedIn() && (
                 <>
