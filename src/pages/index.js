@@ -7,10 +7,6 @@ import Amplify from 'aws-amplify'
 import config from '../aws-exports'
 import Home from '../components/Home/Home'
 
-// import "../../node_modules/bootstrap/scss/bootstrap";
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import 'bootstrap';
-// import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { withAuthenticator } from 'aws-amplify-react';
 
 Amplify.configure(config)
