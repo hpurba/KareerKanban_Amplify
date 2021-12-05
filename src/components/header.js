@@ -12,6 +12,16 @@ import { Container, Button, Navbar, Nav, NavItem, NavDropdown, MenuItem } from '
 
 const user = getCurrentUser()
 
+// logout = async () => {
+//   try {
+//     await Auth.signOut()
+//     navigate("/app/home")
+//   } catch (err) {
+//     this.setState({ error: err })
+//     console.log('error...: ', err)
+//   }
+// }
+
 const Header = ({ siteTitle }) => (
   <header>
     <Navbar bg="light" expand="lg">
@@ -41,13 +51,17 @@ const Header = ({ siteTitle }) => (
                 <>
                   <Nav.Link href="/app/profile">{user.username}</Nav.Link>
                   <Nav.Link href="/app/kanban">Kanban</Nav.Link>
-                  <Nav.Link href="/app/pricing" disabled>Pricing</Nav.Link>
+                  <Nav.Link href="/app/pricing">Pricing</Nav.Link>
                   <a
                     onClick={
                       () => Auth.signOut().then(logout(() => navigate('/app/home'))).catch(err => console.log('eror:', err))
                     }
                     class="nav-item nav-link">Sign Out</a>
+                  {/* <Button onClick={this.logout}>
+                    Sign Out
+                  </Button> */}
                 </>
+
               )
             }
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
@@ -63,6 +77,27 @@ const Header = ({ siteTitle }) => (
     </Navbar>
   </header>
 )
+
+
+const styles = {
+  input: {
+    height: 40, margin: '10px 0px', padding: 7
+  },
+  formContainer: {
+    display: 'flex', flexDirection: 'column'
+  },
+  button: {
+    backgroundColor: '#085ED6', padding: '15px 7px', cursor: 'pointer', textAlign: 'center', marginBottom: 10
+  },
+  buttonText: {
+    color: 'white'
+  },
+  loginForm: {
+    margin: 150,
+  }
+}
+
+
 export default Header
 
 

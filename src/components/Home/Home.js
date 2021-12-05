@@ -42,9 +42,9 @@ const Home = () => <div>
 						<form>
 							<div className="input-group input-group-lg">
 								{/* <Link to="../Kanban/Kanban">Sign In</Link><br /> */}
-								<Link to="../Kanban/Kanban">
+								<Link to="/app/signup">
 									<button className="btn btn-primary btn-block">
-										Get started for free!
+										Get started for FREE!
 									</button>
 								</Link>
 							</div>
@@ -115,7 +115,7 @@ const Home = () => <div>
 						backgroundImage: "url(" + bgShowcase1 + ")",
 					}}
 				></div>
-				<div className="col-lg-6 order-lg-1 my-auto showcase-text">
+				<div className="col-lg-6 order-lg-2 my-auto showcase-text">
 					<h2>What is a Kanban?</h2>
 					<p className="lead mb-0">
 						Kanban boards visually depict work at various stages of a
@@ -131,7 +131,7 @@ const Home = () => <div>
 						backgroundImage: "url(" + bgShowcase2 + ")",
 					}}
 				></div>
-				<div className="col-lg-6 my-auto showcase-text">
+				<div className="col-lg-6 order-lg-1 my-auto showcase-text">
 					<h2>What is a Kanban Kard?</h2>
 					<p className="lead mb-0">
 						A Kanban Kard is a Job Application and all data asssociated
@@ -143,12 +143,12 @@ const Home = () => <div>
 			</div>
 			<div className="row g-0">
 				<div
-					className="col-lg-6 order-lg-3 text-white showcase-img scaled-to-fit-img"
+					className="col-lg-6 order-lg-1 text-white showcase-img scaled-to-fit-img"
 					style={{
 						backgroundImage: "url(" + bgShowcase3 + ")",
 					}}
 				></div>
-				<div className="col-lg-6 order-lg-1 my-auto showcase-text">
+				<div className="col-lg-6 order-lg-2 my-auto showcase-text">
 					<h2>Easy to Use & Customize</h2>
 					<p className="lead mb-0">
 						Your Kanban is your personal companion in the search for a
