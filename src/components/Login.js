@@ -38,7 +38,7 @@ class Login extends React.Component {
   render() {
     if (isLoggedIn()) navigate('/app/profile')
     return (
-      <div>
+      <div style={styles.loginForm}>
         <h1>Sign In</h1>
         {this.state.error && <Error errorMessage={this.state.error}/>}
         <div style={styles.formContainer}>
@@ -75,10 +75,13 @@ const styles = {
     display: 'flex', flexDirection: 'column'
   },
   button: {
-    backgroundColor: 'rebeccapurple', padding: '15px 7px', cursor: 'pointer', textAlign: 'center', marginBottom: 10
+    backgroundColor: '#085ED6', padding: '15px 7px', cursor: 'pointer', textAlign: 'center', marginBottom: 10
   },
   buttonText: {
     color: 'white'
+  },
+  loginForm: {
+    margin: 150,
   }
 }
 

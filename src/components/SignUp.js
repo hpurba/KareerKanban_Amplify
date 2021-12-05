@@ -49,7 +49,7 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={styles.signupForm}>
         <h1>Sign Up</h1>
         {
           this.state.stage === 0 && (
@@ -121,10 +121,13 @@ const styles = {
     display: 'flex', flexDirection: 'column'
   },
   button: {
-    backgroundColor: 'rebeccapurple', padding: '15px 7px', cursor: 'pointer', textAlign: 'center', marginBottom: 10
+    backgroundColor: '#085ED6', padding: '15px 7px', cursor: 'pointer', textAlign: 'center', marginBottom: 10
   },
   buttonText: {
     color: 'white'
+  },
+  signupForm: {
+    margin: 150,
   }
 }
 

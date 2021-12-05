@@ -7,6 +7,8 @@ import { logout, isLoggedIn } from "../utils/auth"
 import { Auth } from 'aws-amplify'
 import "./styles.css";
 import { getCurrentUser } from '../utils/auth'
+import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+
 
 const user = getCurrentUser()
 
@@ -26,27 +28,50 @@ const Header = ({ siteTitle }) => (
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link active" href="/">Home</a>
-          <a class="nav-item nav-link active" href="/app/signup">SignUp</a>
-          <a class="nav-item nav-link" href="/app/login">Login</a>
-          <a class="nav-item nav-link" href="/app/profile">Profile {user.username}</a>
+
+
+          <a className="nav-item">
+            {
+              !isLoggedIn() && (
+                <a class="nav-item nav-link active" href="/app/signup">Sign Up</a>
+              )
+            }
+          </a>
+
+          <a className="nav-item">
+            {
+              !isLoggedIn() && (
+                <a class="nav-item nav-link" href="/app/login">Login</a>
+              )
+            }
+          </a>
+
+
           <a class="nav-item nav-link" href="/app/kanban">Kanban</a>
-          {/* <a class="nav-item nav-link" href="#">Pricing</a> */}
 
-          {/* <a class="nav-item nav-link" href="#">{user.username}</a> */}
-          <a class="nav-item nav-link disabled" href="#">Pricing</a>
-          {
-            isLoggedIn() && (
+          <a className="nav-item">
+            {
+              isLoggedIn() && (
+                <a class="nav-item nav-link" href="/app/profile">{user.username}</a>
+              )
+            }
+          </a>
 
-              <a class="nav-item nav-link" href="#">{user.username}</a>
-            )
-          }
+          <a className="nav-item">
+            {
+              !isLoggedIn() && (
+                <a class="nav-item nav-link disabled" href="#">Pricing</a>
+              )
+            }
+          </a>
+
           <a className="nav-item">
             {
               isLoggedIn() && (
                 <a
                   onClick={
-                    () => Auth.signOut().then(logout(() => navigate('/app/login'))).catch(err => console.log('eror:', err))
-                  } 
+                    () => Auth.signOut().then(logout(() => navigate('/app/home'))).catch(err => console.log('eror:', err))
+                  }
                   class="nav-item nav-link" >Sign Out</a>
                 // <a class="nav-item nav-link" href="/app/kanban">Kanban</a>
 
