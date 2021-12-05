@@ -52,11 +52,13 @@ const Header = ({ siteTitle }) => (
                   <Nav.Link href="/app/profile">{user.username}</Nav.Link>
                   <Nav.Link href="/app/kanban">Kanban</Nav.Link>
                   <Nav.Link href="/app/pricing">Pricing</Nav.Link>
-                  <a
-                    onClick={
-                      () => Auth.signOut().then(logout(() => navigate('/app/home'))).catch(err => console.log('eror:', err))
-                    }
-                    class="nav-item nav-link">Sign Out</a>
+                  <>
+                    <a
+                      onClick={
+                        () => Auth.signOut().then(logout(() => navigate('/app/home'))).catch(err => console.log('eror:', err))
+                      }
+                      class="nav-item nav-link">Sign Out</a>
+                  </>
                   {/* <Button onClick={this.logout}>
                     Sign Out
                   </Button> */}
@@ -64,6 +66,20 @@ const Header = ({ siteTitle }) => (
 
               )
             }
+            
+            {
+              isLoggedIn() && (
+                <>
+                  <a
+                    onClick={
+                      () => Auth.signOut().then(logout(() => navigate('/app/home'))).catch(err => console.log('eror:', err))
+                    }
+                    class="nav-item nav-link">Sign Out</a>
+                </>
+
+              )
+            }
+
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
