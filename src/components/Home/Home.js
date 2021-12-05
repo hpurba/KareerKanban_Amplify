@@ -11,9 +11,9 @@ import { Link } from 'gatsby'
 
 
 // import { NavLink } from "react-router-dom";
-import bgShowcase1 from "./img/bg-showcase-1.jpeg";
+import bgShowcase1 from "./img/bg-showcase-1.png";
 import bgShowcase2 from "./img/bg-showcase-2.png";
-import bgShowcase3 from "./img/bg-showcase-3.jpeg";
+import bgShowcase3 from "./img/bg-showcase-3.png";
 import jobApplicationSVG from "./img/jobApplicationSVG.svg";
 import testimonial1 from "./img/testimonials-1.jpg";
 import testimonial2 from "./img/testimonials-2.jpg";
@@ -110,7 +110,7 @@ const Home = () => <div>
 		<div className="container-fluid p-0">
 			<div className="row g-0">
 				<div
-					className="col-lg-6 order-lg-2 text-white showcase-img scaled-to-fit-img"
+					className="col-lg-6 order-lg-1 text-white showcase-img scaled-to-fit-img"
 					style={{
 						backgroundImage: "url(" + bgShowcase1 + ")",
 					}}
@@ -126,7 +126,7 @@ const Home = () => <div>
 			</div>
 			<div className="row g-0">
 				<div
-					className="col-lg-6 text-white showcase-img scaled-to-fit-img"
+					className="col-lg-6 order-lg-2 text-white showcase-img scaled-to-fit-img"
 					style={{
 						backgroundImage: "url(" + bgShowcase2 + ")",
 					}}
@@ -143,7 +143,7 @@ const Home = () => <div>
 			</div>
 			<div className="row g-0">
 				<div
-					className="col-lg-6 order-lg-2 text-white showcase-img scaled-to-fit-img"
+					className="col-lg-6 order-lg-3 text-white showcase-img scaled-to-fit-img"
 					style={{
 						backgroundImage: "url(" + bgShowcase3 + ")",
 					}}

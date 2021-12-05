@@ -6,7 +6,9 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 import './layout.css'
+import 'jquery/dist/jquery.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
+
 // import 'bootstrap-icons'
 // import '@asseinfo/react-kanban'
 
