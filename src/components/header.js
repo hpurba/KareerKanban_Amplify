@@ -29,26 +29,43 @@ const Header = ({ siteTitle }) => (
         <div class="navbar-nav">
           <a class="nav-item nav-link active" href="/">Home</a>
 
+          {/* Not Authenticated */}
+          {
+            !isLoggedIn() && (
+              <>
+              <a class="nav-item nav-link active" href="/app/signup">Sign Up</a>
+              <a class="nav-item nav-link active" href="/app/login">Login</a>
+              <a class="nav-item nav-link" href="/app/kanban">Kanban</a>
+              <a class="nav-item nav-link disabled" href="#">Pricing</a>
+              </>
+            )
+          }
 
-          <a className="nav-item">
-            {
-              !isLoggedIn() && (
-                <a class="nav-item nav-link active" href="/app/signup">Sign Up</a>
-              )
-            }
-          </a>
+          {/* Authenticated */}
+          {
+            isLoggedIn() && (
+              <>
+              <a class="nav-item nav-link active" href="/app/profile">{user.username}</a>
+              <a class="nav-item nav-link" href="/app/kanban">Kanban</a>
+              <a class="nav-item nav-link disabled" href="#">Pricing</a>
+              <a
+                onClick={
+                  () => Auth.signOut().then(logout(() => navigate('/app/home'))).catch(err => console.log('eror:', err))
+                }
+                class="nav-item nav-link" >Sign Out</a>
+              </>
+            )
+          }
 
-          <a className="nav-item">
+
+          {/* <a className="nav-item">
             {
               !isLoggedIn() && (
                 <a class="nav-item nav-link" href="/app/login">Login</a>
               )
             }
           </a>
-
-
           <a class="nav-item nav-link" href="/app/kanban">Kanban</a>
-
           <a className="nav-item">
             {
               isLoggedIn() && (
@@ -56,7 +73,6 @@ const Header = ({ siteTitle }) => (
               )
             }
           </a>
-
           <a className="nav-item">
             {
               !isLoggedIn() && (
@@ -77,7 +93,7 @@ const Header = ({ siteTitle }) => (
 
               )
             }
-          </a>
+          </a> */}
         </div>
       </div>
     </nav>
