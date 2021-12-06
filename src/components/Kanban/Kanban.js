@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Board from "./components/Board";
 // import Card from "./Card";
-// import "@asseinfo/react-kanban/dist/styles.css";
+import "@asseinfo/react-kanban/dist/styles.css";
 import "./Kanban.css";
 import { getCurrentUser } from '../../utils/auth'
 
