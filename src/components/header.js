@@ -19,19 +19,10 @@ const Header = ({ siteTitle }) => (
         <Navbar.Brand href="/">{siteTitle}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
+          <Nav className="navbar-nav mr-auto">
 
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/app/kanban">Kanban</Nav.Link>
-
-            {/* Authenticated */}
-            {
-              isLoggedIn() && (
-                <>
-                  <Nav.Link href="/app/profile">{user.username}</Nav.Link>
-                </>
-              )
-            }
 
             {/* Not Authenticated */}
             {
@@ -43,18 +34,6 @@ const Header = ({ siteTitle }) => (
               )
             }
 
-            {
-              isLoggedIn() && (
-                <>
-                  <a
-                    onClick={
-                      () => Auth.signOut().then(logout(() => navigate('/app/home'))).catch(err => console.log('eror:', err))
-                    }
-                    class="nav-item nav-link">Sign Out</a>
-                </>
-              )
-            }
-
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -62,6 +41,29 @@ const Header = ({ siteTitle }) => (
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
             </NavDropdown> */}
+          </Nav>
+
+          {/* Authenticated */}
+          <Nav className="navbar-nav ml-auto">
+            {
+              isLoggedIn() && (
+                <>
+                  <Nav.Link class="ml-auto mr-sm-2" href="/app/profile">{user.username}</Nav.Link>
+                </>
+              )
+            }
+
+            {
+              isLoggedIn() && (
+                <>
+                  <a
+                    onClick={
+                      () => Auth.signOut().then(logout(() => navigate('/app/home'))).catch(err => console.log('eror:', err))
+                    }
+                    class="nav-item ml-auto nav-link mr-sm-0">Sign Out</a>
+                </>
+              )
+            }
           </Nav>
         </Navbar.Collapse>
       </Container>

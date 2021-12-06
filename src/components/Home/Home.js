@@ -35,16 +35,15 @@ const Home = () => <div>
 						</div>
 						<div className="homepage-huge-text">Done Right</div>
 						<h4>
-							Track every job application from aspiration to job offer.
+							Track Every Job Application from Aspiration to Job Offer
 						</h4>
-						<h4>Free now and forever!</h4>
 
 						<form>
 							<div className="input-group input-group-lg">
 								{/* <Link to="../Kanban/Kanban">Sign In</Link><br /> */}
 								<Link to="/app/signup">
 									<button className="btn btn-primary btn-block">
-										Get started for FREE!
+										Get Started for FREE!
 									</button>
 								</Link>
 							</div>
@@ -235,7 +234,7 @@ const Home = () => <div>
 				<div className="col-lg-6 h-100 text-center text-lg-end my-auto">
 					<ul className="list-inline mb-0">
 						<li className="list-inline-item me-4">
-							<a href="#!">
+							<a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/hikaru.purba">
 								<i className="bi-facebook fs-3"></i>
 							</a>
 						</li>
