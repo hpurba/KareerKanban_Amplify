@@ -94,9 +94,11 @@ function Kanban() {
           <Card>
             <Card.Body>My Main Board</Card.Body>
           </Card>
-          <Button>
-            + New Board
-          </Button>
+          <Card>
+            <Button>
+              + New Board
+            </Button>
+          </Card>
         </div>
 
         <Board
