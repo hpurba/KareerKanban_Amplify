@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import { Link } from 'gatsby'
 
 import { navigate } from '@reach/router'
@@ -12,16 +12,6 @@ import { Container, Button, Navbar, Nav, NavItem, NavDropdown, MenuItem } from '
 
 const user = getCurrentUser()
 
-// logout = async () => {
-//   try {
-//     await Auth.signOut()
-//     navigate("/app/home")
-//   } catch (err) {
-//     this.setState({ error: err })
-//     console.log('error...: ', err)
-//   }
-// }
-
 const Header = ({ siteTitle }) => (
   <header>
     <Navbar bg="light" expand="lg">
@@ -32,6 +22,16 @@ const Header = ({ siteTitle }) => (
           <Nav className="me-auto">
 
             <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/app/kanban">Kanban</Nav.Link>
+
+            {/* Authenticated */}
+            {
+              isLoggedIn() && (
+                <>
+                  <Nav.Link href="/app/profile">{user.username}</Nav.Link>
+                </>
+              )
+            }
 
             {/* Not Authenticated */}
             {
@@ -39,21 +39,10 @@ const Header = ({ siteTitle }) => (
                 <>
                   <Nav.Link href="/app/signup">Sign Up</Nav.Link>
                   <Nav.Link href="/app/login">Login</Nav.Link>
-                  <Nav.Link href="/app/kanban">Kanban</Nav.Link>
                 </>
               )
             }
 
-            {/* Authenticated */}
-            {
-              isLoggedIn() && (
-                <>
-                  <Nav.Link href="/app/profile">{user.username}</Nav.Link>
-                  <Nav.Link href="/app/kanban">Kanban</Nav.Link>
-                </>
-
-              )
-            }
             {
               isLoggedIn() && (
                 <>
@@ -63,7 +52,6 @@ const Header = ({ siteTitle }) => (
                     }
                     class="nav-item nav-link">Sign Out</a>
                 </>
-
               )
             }
 
