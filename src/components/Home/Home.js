@@ -70,7 +70,7 @@ const Home = () => <div>
 				<div className="col-lg-4">
 					<div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
 						<div className="features-icons-icon d-flex">
-							<i className="bi-window m-auto text-primary"></i>
+							<i className="bi-kanban m-auto text-primary"></i>
 						</div>
 						<h3>Fully Responsive Kanban</h3>
 						<p className="lead mb-0">
@@ -82,7 +82,7 @@ const Home = () => <div>
 				<div className="col-lg-4">
 					<div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
 						<div className="features-icons-icon d-flex">
-							<i className="bi-layers m-auto text-primary"></i>
+							<i className="bi-card-heading m-auto text-primary"></i>
 						</div>
 						<h3>Kanban Kard</h3>
 						<p className="lead mb-0">
@@ -94,7 +94,7 @@ const Home = () => <div>
 				<div className="col-lg-4">
 					<div className="features-icons-item mx-auto mb-0 mb-lg-3">
 						<div className="features-icons-icon d-flex">
-							<i className="bi-terminal m-auto text-primary"></i>
+							<i className="bi-magic m-auto text-primary"></i>
 						</div>
 						<h3>Easy to Use</h3>
 						<p className="lead mb-0">
@@ -185,7 +185,7 @@ const Home = () => <div>
 						/>
 						<h5>James L.</h5>
 						<p className="font-weight-light mb-0">
-							"KareerKanban's platform is easy and well integrated with
+							"KareerKanban's platform is easy to pick up and well integrated with
 							other services! It's just amazing!"
 						</p>
 					</div>
@@ -199,7 +199,7 @@ const Home = () => <div>
 						/>
 						<h5>Emily R.</h5>
 						<p className="font-weight-light mb-0">
-							"This is a must for any job search!"
+							"This is a MUST for any job search!"
 						</p>
 					</div>
 				</div>
