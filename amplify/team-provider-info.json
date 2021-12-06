@@ -20,6 +20,12 @@
           "appId": "d31ddx38u82yx1",
           "type": "cicd"
         }
+      },
+      "function": {
+        "addNewUser": {
+          "deploymentBucketName": "amplify-kareerkanban-dev-170304-deployment",
+          "s3Key": "amplify-builds/addNewUser-41322b4b516c50736e4b-build.zip"
+        }
       }
     }
   }

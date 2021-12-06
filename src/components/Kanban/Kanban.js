@@ -4,6 +4,21 @@ import Board from "./components/Board";
 import "@asseinfo/react-kanban/dist/styles.css";
 import "./Kanban.css";
 import { getCurrentUser } from '../../utils/auth'
+import { API } from "aws-amplify";
+
+import * as queries from '../../graphql/queries';
+import * as mutations from '../../graphql/mutations';
+import * as subscriptions from '../../graphql/subscriptions';
+
+
+// const UserBoardDetails = {
+//   username: '',
+//   board: 'Learn AWS AppSync'
+  
+// };
+
+// const newTodo = await API.graphql({ query: mutations.create, variables: {input: UserBoardDetails}});
+
 
 function Kanban() {
   const user = getCurrentUser()
