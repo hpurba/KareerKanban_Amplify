@@ -127,7 +127,7 @@ const styles = {
     color: 'white'
   },
   signupForm: {
-    margin: 150,
+    margin: '2em',
   }
 }
 

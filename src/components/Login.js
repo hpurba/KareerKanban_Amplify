@@ -80,7 +80,7 @@ const styles = {
     color: 'white'
   },
   loginForm: {
-    margin: 150,
+    margin: '2em',
   }
 }
 
