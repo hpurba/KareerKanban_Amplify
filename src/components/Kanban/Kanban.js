@@ -201,8 +201,22 @@ function Kanban() {
 
   function handleCreateCard(_, column) {
     // postCreateCard(user.email, column);
-    console.log("Created Card");
-    console.log(column);
+    // console.log("Created Card");
+    // console.log(column);
+
+    // postCreateColumn(user.email, column);
+    // console.log("Created Column");
+    // console.log(column);
+
+    // primaryBoard.columns.push(column);
+    // console.log(primaryBoard);
+
+    // // /* update a board */
+    // console.log("updating baord");
+    // await API.graphql(graphqlOperation(updateUserBoard, { input: { username: username, board: JSON.stringify(primaryBoard) } }));
+    // // update current board.
+    // getBoardState().then(board => setBoard(board)).then(console.log(primaryBoard)).then(console.log("set state"));
+
   }
 
   // function consoleLogStarterBoard() {
