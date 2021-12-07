@@ -11,10 +11,18 @@ import * as mutations from '../../graphql/mutations';
 import { updateUserBoard } from '../../graphql/mutations';
 import * as subscriptions from '../../graphql/subscriptions';
 // import Button from "@restart/ui/esm/Button";
-import { Card, Button} from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import { object } from "prop-types";
 
 // Resource for this Kanban implementation used: https://www.npmjs.com/package/@asseinfo/react-kanban
+// TESTING RESOURCES:
+// -- DynamoDB: https://us-west-2.console.aws.amazon.com/dynamodbv2/home?region=us-west-2#item-explorer?initialTagKey=&table=UserBoard-c3wgdpl33rh6hlaxfc4z5cqmxa-dev
+// -- Cognito: https://us-west-2.console.aws.amazon.com/cognito/users/?region=us-west-2#/pool/us-west-2_V6qn5KPzZ/users?_k=d2wot4
+// -- Amplify: https://us-west-2.console.aws.amazon.com/amplify/home?region=us-west-2&code=485053fbc312b5b6b000#/d31ddx38u82yx1
+// -- addNewUser-dev Lambda: https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/functions/addNewUser-dev?tab=code
+
+
+
 
 
 // const UserBoardDetails = {
@@ -28,14 +36,13 @@ import { object } from "prop-types";
 // return userBoard.data.getUserBoard.board;
 
 // This is where the state of the primary board is saved.
-let primaryBoard;
-
-// This is the starting board object.
-let starterBoard = {
+// let primaryBoard;
+// let primaryBoard; = getBoardState();
+let primaryBoard = {
   columns: [
     {
       id: 1,
-      title: 'Backlog',
+      title: 'Aspiration',
       cards: [
         {
           id: 1,
@@ -46,7 +53,18 @@ let starterBoard = {
     },
     {
       id: 2,
-      title: 'Doing',
+      title: 'Submitted',
+      cards: [
+        {
+          id: 1,
+          title: 'Add card',
+          description: 'Add capability to add a card in a column'
+        },
+      ]
+    },
+    {
+      id: 3,
+      title: 'Offer',
       cards: [
         {
           id: 2,
@@ -58,24 +76,38 @@ let starterBoard = {
   ]
 }
 
+let username = "";
+
 
 function Kanban() {
-  const user = getCurrentUser();
+  username = getCurrentUser().username;
+  
   // const [board, setBoard] = useState({ columns: [] });
-  const [board, setBoard] = useState(starterBoard);
+
+  const [board, setBoard] = useState(primaryBoard);
+  // const [board, setBoard] = useState({ columns: [] });
   let userId = null;
+
+  getBoardState().then(board => primaryBoard = board);
 
   // sets the board on start or refresh
   useEffect(() => {
     let mounted = true;
+
+    console.log("Current Board: " + JSON.stringify(board));
+
     getBoardState().then((board) => {
+      console.log("Got board: " + board);
       console.log(board);
       if (mounted) {
         setBoard(board);
       }
+    }).catch(e => {
+      console.log(e);
     });
+
     return () => (mounted = false);
-  }, [user.email]);
+  }, [username]);
 
   function handleCardMove(_, card, source, dest) {
     // postMoveCard(user.email, card, source, dest);
@@ -124,7 +156,9 @@ function Kanban() {
     console.log(primaryBoard);
 
     /* update a todo */
-    await API.graphql(graphqlOperation(updateUserBoard, { input: { username: user.username, board: JSON.stringify(primaryBoard) }}));
+    await API.graphql(graphqlOperation(updateUserBoard, { input: { username: getCurrentUser().username, board: JSON.stringify(primaryBoard) } }));
+    // update current board.
+    getBoardState().then(board => setBoard(board));
   }
 
   function handleCreateCard(_, column) {
@@ -132,6 +166,14 @@ function Kanban() {
     console.log("Created Card");
     console.log(column);
   }
+
+  // function consoleLogStarterBoard() {
+  //   console.log(JSON.stringify(starterBoard));
+  // }
+  function consolePrimaryBoard() {
+    console.log(JSON.stringify(primaryBoard));
+  }
+
 
   function UncontrolledBoard() {
     return (
@@ -142,7 +184,7 @@ function Kanban() {
             <Card.Body>My Main Board</Card.Body>
           </Card>
           <Card>
-            <Button>
+            <Button onClick={consolePrimaryBoard()}>
               + New Board
             </Button>
           </Card>
@@ -189,14 +231,14 @@ function Kanban() {
 }
 
 // TODO: If this is not used, delete it!
-export async function getUser() {
-  // const body = {
-  //   userEmail: userEmail
-  // }
-  // const data = post("/get_user", body)
-  // return data;
-  return getCurrentUser().username;
-}
+// export async function getUser() {
+//   // const body = {
+//   //   userEmail: userEmail
+//   // }
+//   // const data = post("/get_user", body)
+//   // return data;
+//   return getCurrentUser().username;
+// }
 
 /*
 Used to get the board state at the start of the session (or when the user reloads)
@@ -214,10 +256,16 @@ It needs to be a post to send the user email as a JSON body
 //   return data;
 // }
 export async function getBoardState() {
+  console.log("Current user: " + username);
+
   // Later this will have to actually fetch the entire board and convert it from a JSON string to an object.
-  const userBoard = await API.graphql({ query: queries.getUserBoard, variables: { username: 'hikarupurba' } });
+  const userBoard = await API.graphql({ query: queries.getUserBoard, variables: { username: username } });
+  console.log("Retrieved Primary Board (as a String): " + userBoard.data.getUserBoard.board);
   primaryBoard = JSON.parse(userBoard.data.getUserBoard.board);
+  console.log("Board JSON parsed: " + primaryBoard);
+  
   return primaryBoard;
+
 
   // console.log("BOARDS");
   // console.log("Fetched Board: " + userBoard.data.getUserBoard.board);
