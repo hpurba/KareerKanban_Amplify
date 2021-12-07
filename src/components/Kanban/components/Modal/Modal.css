@@ -1,0 +1,39 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  color: black;
+  white-space: pre-line;
+}
+
+.modal-content {
+  width: 80%;
+  height: 80%;
+  overflow: auto;
+  background-color: white;
+}
+
+.modal-header .modal-footer {
+  padding: 10px;
+}
+
+.modal-title {
+  margin: 15;
+}
+
+h4 {
+  font-size: 2em;
+}
+
+.modal-body {
+  padding: 10px;
+  margin: 20px;
+}

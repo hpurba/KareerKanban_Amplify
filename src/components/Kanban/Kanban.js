@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Board from "./components/Board";
-// import Card from "./Card";
+import Card from "./components/Card/Card";
 import "@asseinfo/react-kanban/dist/styles.css";
 import "./Kanban.css";
 import { getCurrentUser } from '../../utils/auth'
@@ -10,7 +10,7 @@ import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import * as subscriptions from '../../graphql/subscriptions';
 // import Button from "@restart/ui/esm/Button";
-import { Card, Tab, Sonnet, Button, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+//import { Card, Tab, Sonnet, Button, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
 
 // const UserBoardDetails = {
@@ -39,99 +39,46 @@ function Kanban() {
     return () => (mounted = false);
   }, [user.email]);
 
-  function handleCardMove(_, card, source, dest) {
-    postMoveCard(user.email, card, source, dest);
-    console.log("Moved Card");
-    console.log(card);
-    console.log(source);
-    console.log(dest);
+  function handleBoardChange(board, _) {
+    console.log("Changed board");
   }
-
-  function handleDeleteCard(_, column, card) {
-    postDeleteCard(user.email, column, card);
-    console.log("Deleted Card");
-    console.log(column);
-    console.log(card);
-  }
-
-  function handleMoveColumn(_, column, source, dest) {
-    postMoveColumn(user.email, column, source, dest);
-    console.log("Moved Column");
-    console.log(column);
-    console.log(source);
-    console.log(dest);
-  }
-
-  function handleDeleteColumn(_, column) {
-    postDeleteColumn(user.email, column);
-    console.log("Deleted Column");
-    console.log(column);
-  }
-
-  function handleRenameColumn(_, column) {
-    postRenameColumn(user.email, column);
-    console.log("Renamed Column");
-    console.log(column);
-  }
-
-  function handleCreateColumn(_, column) {
-    postCreateColumn(user.email, column);
-    console.log("Created Column");
-    console.log(column);
-  }
-
-  function handleCreateCard(_, column) {
-    postCreateCard(user.email, column);
-    console.log("Created Card");
-    console.log(column);
-  }
-
-  function UncontrolledBoard() {
+function UncontrolledBoard() {
     return (
       //kanban library api docs here: https://github.com/asseinfo/react-kanban
-      <>
-        <div>
-          <Card>
-            <Card.Body>My Main Board</Card.Body>
-          </Card>
-          <Card>
-            <Button>
-              + New Board
-            </Button>
-          </Card>
-        </div>
-
-        <Board
-          // allowed and default functionality
-          allowRemoveCard
-          allowAddCard={{ on: "bottom" }}
-          allowAddColumn
-          allowRenameColumn
-          // allowRemoveColumn
-          initialBoard={board}
-          //allowRemoveColumn
-
-          //callbacks that can redirect to functions
-          onCardDragEnd={handleCardMove}
-          onCardRemove={handleDeleteCard}
-          onCardNew={handleCreateCard}
-          onNewCardConfirm={(newCard) => ({
-            id: new Date().getTime(),
-            ...newCard,
-          })}
-          onColumnDragEnd={handleMoveColumn}
-          onColumnRename={handleRenameColumn}
-          onColumnRemove={handleDeleteColumn}
-          onColumnNew={handleCreateColumn}
-          onNewColumnConfirm={(newColumn) => ({
-            id: new Date().getTime(),
-            ...newColumn,
-          })}
-        // renderCard={(card, { removeCard, dragging }) => (
-        //   <Card allowRemoveCard={true} removeCard={removeCard} dragging={dragging} card={card} />
-        // )}
-        />
-      </>
+      <Board
+        // allowed and default functionality
+        initialBoard={board}
+        allowRemoveCard
+        allowAddCard={{ on: "bottom" }}
+        allowAddColumn
+        allowRenameColumn
+        allowRemoveColumn
+        allowAddColumn
+        //callbacks that can redirect to functions
+        onCardDragEnd={handleBoardChange}
+        onCardRemove={handleBoardChange}
+        onCardNew={handleBoardChange}
+        onNewCardConfirm={(newCard) => ({
+          id: new Date().getTime(),
+          ...newCard,
+        })}
+        onColumnDragEnd={handleBoardChange}
+        onColumnRename={handleBoardChange}
+        onColumnRemove={handleBoardChange}
+        onColumnNew={handleBoardChange}
+        onNewColumnConfirm={(newColumn) => ({
+          id: new Date().getTime(),
+          ...newColumn,
+        })}
+        renderCard={(card, { removeCard, dragging }) => (
+          <Card
+            allowRemoveCard={true}
+            removeCard={removeCard}
+            dragging={dragging}
+            card={card}
+          />
+        )}
+      />
     );
   }
 

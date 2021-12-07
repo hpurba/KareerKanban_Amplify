@@ -63,7 +63,9 @@ export default function ({ children: column, allowRemoveColumn, onColumnRemove, 
           <ColumnTitle allowRenameColumn={allowRenameColumn} onClick={handleRenameMode}>
             {column.title}
           </ColumnTitle>
-          {allowRemoveColumn && <span onClick={() => onColumnRemove(column)}>×</span>}
+          {allowRemoveColumn && <span
+              style={{ float: "right", cursor: "pointer" }}
+              onClick={() => onColumnRemove(column)}>×</span>}
         </>
       )}
     </div>
