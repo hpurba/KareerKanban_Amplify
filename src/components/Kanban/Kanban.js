@@ -81,33 +81,51 @@ let username = "";
 
 function Kanban() {
   username = getCurrentUser().username;
-  
   // const [board, setBoard] = useState({ columns: [] });
 
+  // getBoardState().then(board => primaryBoard = board);
   const [board, setBoard] = useState(primaryBoard);
   // const [board, setBoard] = useState({ columns: [] });
   let userId = null;
 
-  getBoardState().then(board => primaryBoard = board);
+
+
+  // sets the board on start or refresh
+  // useEffect(() => {
+  //   let mounted = true;
+
+  //   console.log("Current Board: " + JSON.stringify(board));
+
+  //   getBoardState().then((board) => {
+  //     console.log("Got board: " + board);
+  //     console.log(board);
+  //     if (mounted) {
+  //       setBoard(board);
+  //     }
+  //   }).catch(e => {
+  //     console.log(e);
+  //   });
+
+  //   return () => (mounted = false);
+  // }, [username]);
+
 
   // sets the board on start or refresh
   useEffect(() => {
-    let mounted = true;
-
-    console.log("Current Board: " + JSON.stringify(board));
-
+    console.log("Start of everything");
     getBoardState().then((board) => {
-      console.log("Got board: " + board);
       console.log(board);
-      if (mounted) {
-        setBoard(board);
-      }
+      primaryBoard = board;
+      setBoard(board);
     }).catch(e => {
       console.log(e);
     });
 
-    return () => (mounted = false);
-  }, [username]);
+    return;
+  }, [])
+
+  
+
 
   function handleCardMove(_, card, source, dest) {
     // postMoveCard(user.email, card, source, dest);
@@ -155,10 +173,11 @@ function Kanban() {
     primaryBoard.columns.push(column);
     console.log(primaryBoard);
 
-    /* update a todo */
-    await API.graphql(graphqlOperation(updateUserBoard, { input: { username: getCurrentUser().username, board: JSON.stringify(primaryBoard) } }));
+    /* update a board */
+    console.log("updating baord");
+    await API.graphql(graphqlOperation(updateUserBoard, { input: { username: username, board: JSON.stringify(primaryBoard) } }));
     // update current board.
-    getBoardState().then(board => setBoard(board));
+    // getBoardState().then(board => setBoard(board)).then(console.log(primaryBoard)).then(console.log("set state"));
   }
 
   function handleCreateCard(_, column) {
@@ -170,7 +189,8 @@ function Kanban() {
   // function consoleLogStarterBoard() {
   //   console.log(JSON.stringify(starterBoard));
   // }
-  function consolePrimaryBoard() {
+  // TODO: This is not working, needs fixing.
+  function consoleLogPrimaryBoard() {
     console.log(JSON.stringify(primaryBoard));
   }
 
@@ -184,7 +204,7 @@ function Kanban() {
             <Card.Body>My Main Board</Card.Body>
           </Card>
           <Card>
-            <Button onClick={consolePrimaryBoard()}>
+            <Button variant="secondary" onClick={consoleLogPrimaryBoard()}>
               + New Board
             </Button>
           </Card>
@@ -263,9 +283,7 @@ export async function getBoardState() {
   console.log("Retrieved Primary Board (as a String): " + userBoard.data.getUserBoard.board);
   primaryBoard = JSON.parse(userBoard.data.getUserBoard.board);
   console.log("Board JSON parsed: " + primaryBoard);
-  
   return primaryBoard;
-
 
   // console.log("BOARDS");
   // console.log("Fetched Board: " + userBoard.data.getUserBoard.board);
