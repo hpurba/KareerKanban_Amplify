@@ -7,7 +7,7 @@ import Amplify from 'aws-amplify'
 import config from '../aws-exports'
 import Home from '../components/Home/Home'
 
-import { withAuthenticator } from 'aws-amplify-react';
+// import { withAuthenticator } from 'aws-amplify-react';
 
 Amplify.configure(config)
 
