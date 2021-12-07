@@ -81,48 +81,67 @@ let username = "";
 
 function Kanban() {
   username = getCurrentUser().username;
-  // const [board, setBoard] = useState({ columns: [] });
-
-  // getBoardState().then(board => primaryBoard = board);
   const [board, setBoard] = useState(primaryBoard);
-  // const [board, setBoard] = useState({ columns: [] });
   let userId = null;
-
-
-
-  // sets the board on start or refresh
-  // useEffect(() => {
-  //   let mounted = true;
-
-  //   console.log("Current Board: " + JSON.stringify(board));
-
-  //   getBoardState().then((board) => {
-  //     console.log("Got board: " + board);
-  //     console.log(board);
-  //     if (mounted) {
-  //       setBoard(board);
-  //     }
-  //   }).catch(e => {
-  //     console.log(e);
-  //   });
-
-  //   return () => (mounted = false);
-  // }, [username]);
+  // const [board, setBoard] = useState({ columns: [] });
+  // getBoardState().then(board => primaryBoard = board);
 
 
   // sets the board on start or refresh
   useEffect(() => {
-    console.log("Start of everything");
+    let mounted = true;
+
+    console.log("Current Board: " + JSON.stringify(board));
+
     getBoardState().then((board) => {
+      console.log("Got board: " + board);
       console.log(board);
-      primaryBoard = board;
-      setBoard(board);
+      if (mounted) {
+        setBoard(board);
+      }
     }).catch(e => {
       console.log(e);
     });
 
-    return;
-  }, [])
+    return () => (mounted = false);
+  }, []);
+
+
+  // sets the board on start or refresh
+  // useEffect(() => {
+  //   console.log("Current user: " + username);
+
+  //   async function getBoard() {    
+  //     // Grab all All boards
+  //     // const allBoards = await API.graphql({ query: queries.listUserBoards });
+  //     // console.log(allBoards); // result: { "data": { "listTodos": { "items": [/* ..... */] } } }
+
+
+
+  //     // Grab board for user (using username)
+  //     const userBoard = await API.graphql({ query: queries.getUserBoard, variables: { username: username } });
+  //     console.log(userBoard);
+  //     // console.log("Retrieved Primary Board (as a String): " + userBoard.data.getUserBoard.board);
+  //     // primaryBoard = JSON.parse(userBoard.data.getUserBoard.board);
+  //     // console.log("Board JSON parsed: " + primaryBoard);
+  //     // return primaryBoard;
+  //   }
+  //   getBoard();
+    
+  //   // primaryBoard = getBoard();
+  //   // setBoard(primaryBoard);
+
+
+  //   // getBoardState().then((board) => {
+  //   //   console.log(board);
+  //   //   primaryBoard = board;
+  //   //   setBoard(board);
+  //   // }).catch(e => {
+  //   //   console.log(e);
+  //   // });
+
+  //   return;
+  // }, [primaryBoard])
 
   
 
@@ -173,11 +192,11 @@ function Kanban() {
     primaryBoard.columns.push(column);
     console.log(primaryBoard);
 
-    /* update a board */
+    // /* update a board */
     console.log("updating baord");
     await API.graphql(graphqlOperation(updateUserBoard, { input: { username: username, board: JSON.stringify(primaryBoard) } }));
     // update current board.
-    // getBoardState().then(board => setBoard(board)).then(console.log(primaryBoard)).then(console.log("set state"));
+    getBoardState().then(board => setBoard(board)).then(console.log(primaryBoard)).then(console.log("set state"));
   }
 
   function handleCreateCard(_, column) {
@@ -280,6 +299,7 @@ export async function getBoardState() {
 
   // Later this will have to actually fetch the entire board and convert it from a JSON string to an object.
   const userBoard = await API.graphql({ query: queries.getUserBoard, variables: { username: username } });
+  console.log(userBoard)
   console.log("Retrieved Primary Board (as a String): " + userBoard.data.getUserBoard.board);
   primaryBoard = JSON.parse(userBoard.data.getUserBoard.board);
   console.log("Board JSON parsed: " + primaryBoard);
@@ -290,6 +310,7 @@ export async function getBoardState() {
   // console.log("Starter Board: " + starterBoard);
   // console.log("Starter Board: " + JSON.stringify(starterBoard));
   // return starterBoard;
+
 }
 
 export default Kanban;

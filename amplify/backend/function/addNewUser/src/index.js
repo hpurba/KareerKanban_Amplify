@@ -45,14 +45,19 @@ exports.handler = async (event, context) => {
             await ddb.putItem(params).promise()
             console.log("Success");
 
-            // Create starter board
-            const columns = ["Aspirations", "Drafted", "Submitted", "Interviewed", "Offer"];
+            // OLD Implementation
+            // const columns = ["Aspirations", "Drafted", "Submitted", "Interviewed", "Offer"];
+                    // 'board': { S: JSON.stringify(columns)},
+                    
+            // Create starter board        
+            const board = {"columns":[{"id":1,"title":"Backlog","cards":[{"id":1,"title":"Add card","description":"Add capability to add a card in a column"}]},{"id":2,"title":"Doing","cards":[{"id":2,"title":"Drag-n-drop support","description":"Move a card between the columns"}]}]}
+            
             let starterBoard = {
                 Item: {
                     'username': {S: event.userName },
-                    'board': { S: JSON.stringify(columns)},
-                    'createdAt': { S: date.toISOString() },
-                    'updatedAt': { S: date.toISOString() },
+                    'board': {S: JSON.stringify(board)},
+                    'createdAt': {S: date.toISOString()},
+                    'updatedAt': {S: date.toISOString()},
                 },
                 TableName: 'UserBoard-c3wgdpl33rh6hlaxfc4z5cqmxa-dev'
             }

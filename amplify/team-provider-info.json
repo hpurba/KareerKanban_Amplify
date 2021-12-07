@@ -24,7 +24,7 @@
       "function": {
         "addNewUser": {
           "deploymentBucketName": "amplify-kareerkanban-dev-170304-deployment",
-          "s3Key": "amplify-builds/addNewUser-58754133514b506e4b6a-build.zip"
+          "s3Key": "amplify-builds/addNewUser-44522f61545265786131-build.zip"
         }
       }
     }
