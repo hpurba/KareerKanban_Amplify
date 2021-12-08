@@ -9,6 +9,26 @@ import { API } from "aws-amplify";
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import * as subscriptions from '../../graphql/subscriptions';
+
+
+
+
+
+
+// USE THESE FUNCTIONS
+// // Updates the board
+// await API.graphql(graphqlOperation(updateUserBoard, { input: { username: username, board: JSON.stringify(primaryBoard) } }));
+// // Grab the board
+// const userBoard = await API.graphql({ query: queries.getUserBoard, variables: { username: username } });
+// primaryBoard = JSON.parse(userBoard.data.getUserBoard.board);
+
+
+
+
+
+
+
+
 // import Button from "@restart/ui/esm/Button";
 //import { Card, Tab, Sonnet, Button, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
@@ -21,23 +41,24 @@ import * as subscriptions from '../../graphql/subscriptions';
 
 // const newTodo = await API.graphql({ query: mutations.create, variables: {input: UserBoardDetails}});
 
+let username = "";
 
 function Kanban() {
-  const user = getCurrentUser()
+  const username = getCurrentUser().username
   const [board, setBoard] = useState({ columns: [] });
   let userId = null;
 
   // sets the board on start or refresh
   useEffect(() => {
     let mounted = true;
-    getBoardState(user.email).then((board) => {
+    getBoardState(username).then((board) => {
       console.log(board);
       if (mounted) {
         setBoard(board);
       }
     });
     return () => (mounted = false);
-  }, [user.email]);
+  }, []);
 
   function handleBoardChange(board, _) {
     console.log("Changed board");
@@ -89,109 +110,26 @@ function UncontrolledBoard() {
   );
 }
 
-
-export async function getUser(userEmail) {
-  const body = {
-    userEmail: userEmail
-  }
-  const data = post("/get_user", body)
-  return data;
-}
-
 /*
 Used to get the board state at the start of the session (or when the user reloads)
 It needs to be a post to send the user email as a JSON body
 */
-export async function getBoardState(userEmail) {
-  console.log("Perform get user")
-  const response = await getUser(userEmail)
-  console.log(response)
-  const userId = response.userId
-  const body = {
-    userId: userId
-  }
-  const data = post("/get_board", body)
-  return data;
+export async function getBoardState(username) {
+  // console.log("Perform get user")
+  // const response = await getUser(userEmail)
+  // console.log(response)
+  // const userId = response.userId
+  // const body = {
+  //   userId: userId
+  // }
+  // const data = post("/get_board", body)
+  // return data;
+
+
+  const userBoard = await API.graphql({ query: queries.getUserBoard, variables: { username: username } });
+  var primaryBoard = JSON.parse(userBoard.data.getUserBoard.board);
+  return primaryBoard;
 }
 
-export async function postMoveCard(userEmail, card, source, dest) {
-  const body = {
-    userEmail: userEmail,
-    card,
-    source,
-    dest
-  }
-  post("/move_card", body)
-  return;
-}
-
-export async function postCreateCard(userEmail, updatedColumn) {
-  const body = {
-    userEmail: userEmail,
-    updatedColumn
-  }
-  post("/create_card", body)
-  return;
-}
-
-export async function postDeleteCard(userEmail, column, card) {
-  const body = {
-    userEmail: userEmail,
-    column,
-    card
-  }
-  post("/delete_card", body)
-  return;
-}
-
-export async function postMoveColumn(userEmail, column, source, dest) {
-  const body = {
-    userEmail: userEmail,
-    column,
-    source,
-    dest
-  }
-  post("/move_column", body)
-  return;
-}
-
-export async function postCreateColumn(userEmail, newColumn) {
-  const body = {
-    userEmail: userEmail,
-    newColumn
-  }
-  post("/create_column", body)
-  return;
-}
-
-export async function postDeleteColumn(userEmail, column) {
-  const body = {
-    userEmail: userEmail,
-    column
-  }
-  post("/delete_column", body)
-  return;
-}
-
-export async function postRenameColumn(userEmail, column) {
-  const body = {
-    userEmail: userEmail,
-    column
-  }
-  post("/rename_column", body)
-  return;
-}
-
-export async function post(endpoint, body) {
-  const data = await fetch(endpoint, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-  return await data.json();
-}
 
 export default Kanban;
