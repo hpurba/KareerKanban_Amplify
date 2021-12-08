@@ -60,9 +60,11 @@ function Kanban() {
     return () => (mounted = false);
   }, []);
 
-  function handleBoardChange(board, _) {
+  async function handleBoardChange(board, _) {
     console.log("Changed board");
+    await API.graphql(graphqlOperation(updateUserBoard, { input: { username: username, board: JSON.stringify(board) } }));
   }
+
 function UncontrolledBoard() {
     return (
       //kanban library api docs here: https://github.com/asseinfo/react-kanban
@@ -115,17 +117,6 @@ Used to get the board state at the start of the session (or when the user reload
 It needs to be a post to send the user email as a JSON body
 */
 export async function getBoardState(username) {
-  // console.log("Perform get user")
-  // const response = await getUser(userEmail)
-  // console.log(response)
-  // const userId = response.userId
-  // const body = {
-  //   userId: userId
-  // }
-  // const data = post("/get_board", body)
-  // return data;
-
-
   const userBoard = await API.graphql({ query: queries.getUserBoard, variables: { username: username } });
   var primaryBoard = JSON.parse(userBoard.data.getUserBoard.board);
   return primaryBoard;
