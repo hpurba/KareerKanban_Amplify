@@ -4,15 +4,12 @@ import Card from "./components/Card/Card";
 import "@asseinfo/react-kanban/dist/styles.css";
 import "./Kanban.css";
 import { getCurrentUser } from '../../utils/auth'
-import { API } from "aws-amplify";
+import { API, graphqlOperation } from "aws-amplify";
 
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import * as subscriptions from '../../graphql/subscriptions';
-
-
-
-
+import { updateUserBoard } from '../../graphql/mutations';
 
 
 // USE THESE FUNCTIONS
